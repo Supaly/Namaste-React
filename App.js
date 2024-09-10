@@ -1,27 +1,38 @@
 import React from "react";
-import ReactDOM from "react-dom/client"
+import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-    "h1",
-    { id: "heading" }, 
-    "Hello from React");
+const HeadingComponent = () => (
+  <div id="heading">
+    <h1>hi from functional component</h1>
+    <NestedFunction />
+    <NestedFunction></NestedFunction>
+    {NestedFunction()}
+    {value } declaration
+    {ReactElement}
+  </div> 
+);
+const value = "variable ";
 
-const parent = React.createElement(
-    "div",
-    { id: "parent" }, [
-    React.createElement(
-        "div",
-        { id: "child" },
-        ["hello from child 1",
-            React.createElement("h1", {}, "Hello from nested child 1")]
-    ),
-    React.createElement(
-        "div",
-        { id: "child1" },
-        ["hello from inner child 2ss",
-            React.createElement("h1", {}, "Hello from nested child 2")]
-    )]
+const NestedFunction = function () {
+  return (
+    <div>
+    <h2>
+      A functional component is a javascript function that reurn some piece of
+      jsx or that return react element
+    </h2>
+    <h2>Nesting react component is known as functional composition</h2>
+    </div>
+  );
+};
+
+const NestedReactElement =(
+    <h3>nested Rect Element</h3>
+);
+
+const ReactElement = (
+    <h2> This is normal react element 
+        {NestedReactElement}</h2>
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent />);

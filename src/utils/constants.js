@@ -1,0 +1,2 @@
+export const CDN_LOGO = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/5/23/db0d5750-c352-409e-9743-c4deb10c863d_643750.JPG'
+export const CDN_URL = "https://media-assets.swiggy.com/swiggy/";

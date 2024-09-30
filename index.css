@@ -76,3 +76,10 @@
 .filter {
     margin-left: 10px;
 }
+
+.user {
+    border: solid 1px #c49e9e;
+    margin:10px;
+    padding: 10px;
+    background-color: #f5def0;
+}

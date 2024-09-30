@@ -1,6 +1,8 @@
 import ResContainer from "./ResContainer";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
+import {CDN_RESTAURENT} from "../utils/constants"
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurent, setListOfRestaurent] = useState([]);
@@ -10,9 +12,7 @@ const Body = () => {
     fetchData();
   }, []);
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
     console.log(json);
     setListOfRestaurent(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -53,14 +53,18 @@ const Body = () => {
             }}
           >
             {" "}
-            filter Top 5 Restaurents{" "}
+            filter Top Restaurents{" "}
           </button>
         </div>
       </div>
       <div className="Res-container">
         {/* <ResContainer name='KFC'/> */}
         {filteredRestaurent.map((restaurent) => (
-          <ResContainer key={restaurent.info.id} resData={restaurent} />
+          
+          <Link key={restaurent.info.id}
+          to={"/restaurents/" + restaurent.info.id}>
+            <ResContainer resData={restaurent} />
+          </Link>
         ))}
       </div>
     </div>
